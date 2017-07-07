@@ -7,6 +7,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { MenuComponent } from './menu/menu.component';
 import { ContentComponent } from './content/content.component';
 import { FootComponent } from './foot/foot.component';
+import { StockManageComponent } from './stock/stock-manage/stock-manage.component';
+import { StarsComponent } from './stars/stars.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { FootComponent } from './foot/foot.component';
     SidebarComponent,
     MenuComponent,
     ContentComponent,
-    FootComponent
+    FootComponent,
+    StockManageComponent,
+    StarsComponent
   ],
   imports: [
     BrowserModule
