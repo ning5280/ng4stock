@@ -9,6 +9,14 @@ import { ContentComponent } from './content/content.component';
 import { FootComponent } from './foot/foot.component';
 import { StockManageComponent } from './stock/stock-manage/stock-manage.component';
 import { StarsComponent } from './stars/stars.component';
+import { Routes, RouterModule } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
+// 配置路由
+const routeConfig : Routes = [
+  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  {path: 'dashboard', component:DashboardComponent},
+  {path: 'stock', component: StockManageComponent}
+]
 
 @NgModule({
   declarations: [
@@ -19,10 +27,12 @@ import { StarsComponent } from './stars/stars.component';
     ContentComponent,
     FootComponent,
     StockManageComponent,
-    StarsComponent
+    StarsComponent,
+    DashboardComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routeConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
