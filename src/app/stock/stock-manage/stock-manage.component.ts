@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
+import { Stock, StockService } from "app/stock/stock.service";
 
 @Component({
   selector: 'app-stock-manage',
@@ -8,14 +9,10 @@ import { Router } from "@angular/router";
 })
 export class StockManageComponent implements OnInit {
   private stocks: Array<Stock>;
-  constructor(public router:Router) { }
+  constructor(public router:Router, private stockService: StockService) { }
 
   ngOnInit() {
-    this.stocks = [
-      new Stock(1, "第一个股票", 1.99, 3.5, "这是第一个测试", ['it']),
-      new Stock(2, "第2个股票", 1.19, 5, "这是第12ng个测试", ['it'])
-      
-    ];
+    this.stocks = this.stockService.getStocks();
   }
 
   create() {
@@ -28,15 +25,3 @@ export class StockManageComponent implements OnInit {
   }
 }
 
-export class Stock {
-  constructor(
-    public id: number,
-    public name: string,
-    public price: number,
-    public rating: number,
-    public desc: string,
-    public categories: Array<string>
-  ){
-
-  }
-}
